@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+  <g id="Stitch" transform="translate(-7210.213 -565.246)">
+    <path id="Path_4052" data-name="Path 4052" d="M0,0,19.651.212,19.665,1.5.014,1.286Z" transform="translate(7213.631 567.763) rotate(45)" fill="#e63e06"/>
+    <path id="Path_4053" data-name="Path 4053" d="M0,0,19.648-.212l-.014,1.289L-.014,1.289Z" transform="translate(7227.695 568.684) rotate(135)" fill="#2c91d2"/>
+    <rect id="Rectangle_2859" data-name="Rectangle 2859" width="19.21" height="1.259" transform="translate(7211.103 570.772) rotate(45)" fill="#e63e06"/>
+    <rect id="Rectangle_2860" data-name="Rectangle 2860" width="19.21" height="1.259" transform="translate(7216.629 565.246) rotate(45)" fill="#e63e06"/>
+    <path id="Path_4044" data-name="Path 4044" d="M0,0H19.206V1.259H0Z" transform="translate(7225.003 566.136) rotate(135)" fill="#2c91d2"/>
+    <rect id="Rectangle_2858" data-name="Rectangle 2858" width="19.206" height="1.259" transform="translate(7230.213 571.662) rotate(135)" fill="#2c91d2"/>
+  </g>
+</svg>

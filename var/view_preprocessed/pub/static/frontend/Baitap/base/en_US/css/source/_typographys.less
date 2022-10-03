@@ -1,0 +1,193 @@
+//// /**
+////  * Copyright © Magento, Inc. All rights reserved.
+////  * See COPYING.txt for license details.
+////  */
+//
+@import './variables/_colors.less';
+@import './variables/_typography.less';
+
+@baseDir: "../";
+
+.lib-font-face(
+    @font-family__rubik-bold,
+    @font-path-bold,
+    @font-family__rubik-regular,
+    @font-path-regular,
+    @font-family__icons,
+    @font-path-icons
+) {
+    @font-face {
+        font-family: @font-family__rubik-bold;
+        src: url(@font-path-bold);
+    }
+    @font-face {
+        font-family: @font-family__rubik-regular;
+        src: url(@font-path-regular);
+    }
+    @font-face {
+        font-family: @font-family__icons;
+        src: url(@font-path-icons);
+    }
+}
+
+& when (@media-common = true) {
+    .lib-font-face(
+        @font-family__rubik-bold,
+        @font-path-bold,
+        @font-family__rubik-regular,
+        @font-path-regular,
+        @font-family__icons,
+        @font-path-icons
+    );
+}
+//////////////
+//.lib-typography-h(
+//    @_font-size,
+//    @_color: @heading__color__base,
+//    @_font-family: @font-family__rubik-bold,
+//    @_font-weight: @font-weight__bold,
+//    @_line-height,
+//    @_font-style: @font-style__base
+//){
+//    font-size: @_font-size;
+//    color: @_color;
+//    font-family: @_font-family;
+//    font-weight: @_font-weight;
+//    line-height: @_line-height;
+//    font-style: @_font-style;
+//}
+
+.lib-typography-headings(@heading__font-family__base){
+    font-family: @heading__font-family__base;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    .lib-typography-headings(@heading__font-family__base);
+}
+
+
+//h2 {
+//    .lib-typography-h(
+//        @_font-size: @h2__font-size;
+//        @_line-height: @h2__line-height;
+//    );
+//}
+//
+//h3 {
+//    .lib-typography-h(
+//        @_font-size: @h3__font-size;
+//        @_line-height: @h3__line-height;
+//    );
+//}
+//
+//h4 {
+//    .lib-typography-h(
+//        @_font-size: @h4__font-size;
+//        @_line-height: @h4__line-height;
+//    );
+//}
+//base
+.lib-typo__base(
+    @font-family__rubik-regular,
+    @typo-color: @text__color__c,
+    @typo-font-size: @link__font-size,
+    @typo-line-height: @link__line-height
+){
+    font-family: @font-family__rubik-regular;
+    color: @typo-color;
+    font-size: @typo-font-size;
+    line-height: @typo-line-height;
+}
+
+p {
+    .lib-typo__base(
+        @font-family__rubik-regular,
+        @typo-color: @text__color__c,
+        @typo-font-size: @link__font-size,
+        @typo-line-height: @link__line-height
+    );
+}
+
+label {
+
+}
+
+// link
+.lib-typography-links(
+    @font-family__rubik-regular,
+    @_link-color: @link__color,
+    @_link-text-decoration: @link__text-decoration,
+    @_link-font-size: @link__font-size,
+    @_link-line-height: @link__line-height,
+
+    @_link-color-hover: @link__hover__color,
+    @_link-text-decoration-hover: @link__hover__text-decoration
+){
+    font-family: @font-family__rubik-regular;
+    color: @color-grey1;
+    text-decoration: @_link-text-decoration;
+    font-size: @_link-font-size;
+    line-height: @_link-line-height;
+    &:hover {
+        color: @_link-color-hover;
+        text-decoration: @_link-text-decoration-hover;
+    }
+}
+
+
+a {
+    &.testlink {
+        margin-left: 0;
+        .lib-typography-links(@font-family__rubik-regular,
+            @_link-color: @link__color,
+            @_link-text-decoration: @link__text-decoration,
+            @_link-font-size: @link__font-size,
+            @_link-line-height: @link__line-height,
+            @_link-color-hover: @link__hover__color,
+            @_link-text-decoration-hover: @link__hover__text-decoration);
+    }
+}
+
+// lists
+.lib-typo-lists(
+    @_list-font-family: @list__font-family,
+    @_list-color: @list__color,
+    @_list-font-size: @link__font-size,
+    @_list-line-height: @link__line-height,
+    @list-style-type
+){
+    font-family: @_list-font-family;
+    color: @_list-color;
+    font-size: @_list-font-size;
+    line-height: @_list-line-height;
+    list-style-type: @list-style-type;
+}
+
+ul {
+    .lib-typo-lists(@list-style-type: disc);
+}
+
+ol {
+    .lib-typo-lists(@list-style-type: decimal);
+}
+
+label {
+    font-family: @font-family__rubik-bold;
+    font-size: @h6__font-size;
+    line-height: 24px;
+    color: @color-blue2;
+}
+
+
+
+.lib-typography-buttons(@font-family__rubik-bold, @h6__font-size){
+    font-family: @font-family__rubik-bold;
+    font-size: @h6__font-size;
+}
+
+

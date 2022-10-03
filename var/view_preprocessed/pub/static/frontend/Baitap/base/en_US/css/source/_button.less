@@ -1,0 +1,248 @@
+// /**
+//  * Copyright © Magento, Inc. All rights reserved.
+//  * See COPYING.txt for license details.
+//  */
+@import './variables/_colors.less';
+@import './_typographys.less';
+@import './variables/_buttons.less';
+@import './_icons.less';
+//
+//  Buttons variables
+//  _____________________________________________
+
+//
+//  Buttons
+//  ---------------------------------------------
+
+.setup_button(
+    @_button-font-family: @button__font-family,
+    @_button-font-size: @button__font-size,
+    @_button-font-weight: @button__font-weight
+){
+    font-family: @_button-font-family;
+    font-size: @_button-font-size;
+    font-weight: @_button-font-weight;
+}
+
+button {
+    margin-left: 20px;
+    justify-content: center;
+    .setup_button(
+        @_button-font-family: @button__font-family,
+        @_button-font-size: @button__font-size,
+        @_button-font-weight: @button__font-weight
+    );
+    &.action.primary {
+        .button_primary(
+            @_button-primary-color: @button-primary__color,
+
+            @_button-primary-border: @button-primary__border,
+            @_button-primary-background: @button-primary__background,
+            @_button-primary-hover-color: @button-primary__hover__color,
+            @_button-primary-hover-border: @button-primary__hover__border,
+            @_button-primary-hover-background: @button-primary__hover__background,
+            @_button-width: @button__width__primary,
+            @_button-height: @button__height__primary
+        );
+    }
+    &.action.secondary {
+        .button_secondary(
+            @_button-secondary-color: @button__color,
+            @_button-secondary-border: @button__border,
+            @_button-secondary-background: @button__background,
+            @_button-secondary-hover-color: @button__hover__color,
+            @_button-secondary-hover-border: @button__hover__border,
+            @_button-secondary-hover-background: @button__hover__background,
+            @_button-width: @button__width__primary,
+            @_button-height: @button__height__primary
+        );
+    }
+    &.action.secondary2 {
+        .button_secondary(
+            @_button-secondary-border: none,
+            @_button-secondary-hover-border: none
+        );
+    }
+    &.disabled {
+        opacity: 40%;
+        .button_disable(
+            @button-disable__color,
+            @button-disable__background,
+            @button-disable__border,
+            @_button-width: @button__width__primary,
+            @_button-height: @button__height__primary
+        )
+    }
+    &.disabled2 {
+        opacity: 1;
+        .button_disable(
+            @button-disable__color,
+            @button-disable__background,
+            @button-disable__border
+        );
+    }
+
+    &.xyz {
+        .button_close();
+        & span {
+            font-weight: @font-weight__light;
+        }
+    }
+    &.xy {
+        .button_close(
+            @_button-close-color: @color-blue2;
+        );
+        & span {
+            font-weight: @font-weight__light;
+        }
+    }
+    &.abc {
+        .button_social(
+            @_button-social-width: 230px;
+            @_button-social-hover-background: @color-blue3;
+            @_background-image-hover: url('@{baseDir}images/fb-white.svg')
+        );
+    }
+    &.ab {
+        .button_social(
+            @_button-social-width: 230px;
+            @_button-social-hover-background: @color-green;
+            @_background-image-hover: url('@{baseDir}images/whatsapp (1).svg');
+        )
+    }
+    &.fb {
+        .button_social_2()
+    }
+    &.gg {
+        .button_social_2()
+    }
+    &.tt {
+        .button_social_2()
+    }
+}
+
+// Primary
+.button_primary(
+    @_button-primary-color: @button-primary__color,
+    @_button-primary-border: @button-primary__border,
+    @_button-primary-background: @button-primary__background,
+    @_button-primary-hover-color: @button-primary__hover__color,
+    @_button-primary-hover-border: @button-primary__hover__border,
+    @_button-primary-hover-background: @button-primary__hover__background,
+    @_button-width: @button__width__primary,
+    @_button-height: @button__height__primary
+){
+    color: @_button-primary-color;
+    border: @_button-primary-border;
+    background: @_button-primary-background;
+    width: @_button-width;
+    height: @_button-height;
+    &:hover {
+        color: @_button-primary-hover-color;
+        border: @_button-primary-hover-border;
+        background: @_button-primary-hover-background;
+    }
+}
+
+// Secondary
+.button_secondary(
+    @_button-secondary-color: @button__color,
+    @_button-secondary-border: @button__border,
+    @_button-secondary-background: @button__background,
+    @_button-secondary-hover-color: @button__hover__color,
+    @_button-secondary-hover-border: @button__hover__border,
+    @_button-secondary-hover-background: @button__hover__background,
+    @_button-width: @button__width__primary,
+    @_button-height: @button__height__primary
+){
+    color: @_button-secondary-color;
+    border: @_button-secondary-border;
+    background: @_button-secondary-background;
+    width: @_button-width;
+    height: @_button-height;
+    &:hover {
+        color: @_button-secondary-hover-color;
+        border: @_button-secondary-hover-border;
+        background: @_button-secondary-hover-background;
+    }
+}
+
+// Disable
+.button_disable(
+    @_button-disable-color: @button-disable__color,
+    @_button-disable-background: @button-disable__background,
+    @_button-disable-border: @button-disable__border,
+    @_button-width: @button__width__primary,
+    @_button-height: @button__height__primary
+){
+    color: @_button-disable-color;
+    background: @_button-disable-background;
+    border: @_button-disable-border;
+    width: @_button-width;
+    height: @_button-height;
+}
+
+// Close
+.button_close(
+    @_button-close-background: none,
+    @_button-close-border: none,
+    @_button-close-color: @button-primary__color,
+    @_button-close-hover-color: @_button-close-color,
+    @_text-decoration: underline
+){
+    background: @_button-close-background;
+    border: @_button-close-border;
+    color: @_button-close-color;
+    &:hover{
+        color: @_button-close-hover-color;
+        & b {
+            text-decoration: @_text-decoration;
+        }
+    }
+}
+
+// Social
+.button_social(
+    @_button-social-color: @color-blue2,
+    @_button-social-background: @button__background,
+    @_button-social-hover-color: @button-primary__color,
+    @_button-social-hover-background,
+    @_button-social-width: @button__width__primary,
+    @_button-social-height: @button__height__primary,
+    @_button-social-border: none,
+    @_background-image-hover
+){
+    color: @_button-social-color;
+    background: @_button-social-background;
+    width: @_button-social-width;
+    height: @_button-social-height;
+    border: @_button-social-border;
+    &:hover {
+        color: @_button-social-hover-color;
+        background: @_button-social-hover-background;
+        a {
+            background-image: @_background-image-hover;
+        }
+    }
+}
+
+.button_social_2(
+    @_button-social-color: @color-blue2,
+    @_button-social-background: @button__background,
+    @_button-social-width: @button__width__primary,
+    @_button-social-height: @button__height__primary,
+    @_button-social-border: none
+){
+    color: @_button-social-color;
+    background: @_button-social-background;
+    width: @_button-social-width;
+    height: @_button-social-height;
+    border: @_button-social-border;
+}
+////////////////////////////////////////////////////////////////
+
+
+
+
+
+

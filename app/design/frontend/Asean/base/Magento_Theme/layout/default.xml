@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <script src="js/custom.js" />
+    </head>
+    <body>
+
+<!--        <referenceContainer name="sticky.wrapper" >-->
+<!--            <container name="header.content.wrapper"  htmlTag="div" htmlClass="header-content-wrapper is-visible"/>-->
+<!--        </referenceContainer>-->
+
+<!--        <referenceBlock name="store.menu">-->
+<!--            <block class="Magento\Framework\View\Element\Template" name="right-wrapper" as="right-wrapper" after="minicart"-->
+<!--                   template="Magento_Theme::header/content/right.phtml" />-->
+<!--        </referenceBlock>-->
+
+        <container name="div.sidebar.additional" htmlTag="div" htmlClass="sidebar sidebar-additional" after="div.sidebar.main">
+            <container name="sidebar.additional" as="sidebar_additional" label="Sidebar Additional"/>
+        </container>
+
+        <referenceContainer name="page.wrapper">
+
+<!--            <container name="div.test" htmlTag="div" htmlClass="test-cont" >-->
+<!--                <block class="Magento\Framework\View\Element\Template" name="right-wrapper"-->
+<!--                       template="Magento_Theme::test.phtml" />-->
+<!--            </contai-->
+            <block class="Magento\Cms\Block\Block" name="footer_sponsors">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">footer_sponsors</argument>
+                </arguments>
+            </block>
+
+<!--            <container name="sticky.wrapper" label="stickyWrapper" htmlTag="div" htmlClass="sticky-wrapper"/>-->
+        </referenceContainer>
+
+        <referenceContainer name="footer">
+            <block class="Magento\Framework\View\Element\Template" name="test" template="Magento_Theme::test.phtml"/>
+        </referenceContainer>
+
+<!--        <move element="right-wrapper" destination="sidebar.main" />-->
+<!--        <move element="navigation.sections" destination="header.content.wrapper" />-->
+<!--        <move element="header-wrapper" destination="header.content.wrapper" />-->
+<!--        <move element="sticky.wrapper" destination="header.container" after="header.panel.wrapper" />-->
+        <move element="test" destination="sidebar.main" before="-" />
+
+        <referenceContainer name="footer" display="true">
+            <block class="Magento\Cms\Block\Block" name="footer_content">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">footer_content</argument>
+                </arguments>
+            </block>
+            <block class="Magento\Cms\Block\Block" name="Footer_copyright">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">Footer_copyright</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+
+
+
+    </body>
+</page>

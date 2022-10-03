@@ -1,0 +1,327 @@
+
+@import './_typographys.less';
+@import './variables/_colors.less';
+@import "./variables/_icons.less";
+
+.primary(
+    @_icon-font: @icon-font,
+    @_icon-font-size: @icon-font__size,
+    @_icon-font-line-height: @icon-font__line-height,
+    @_icon-font-color: @icon-font__color_primary,
+    @_icon-font-color-hover: @icon-font__color-hover_primary,
+    @_icon-font-color-active: @icon-font__color-active,
+    @content
+){
+    &:before {
+        font-family: @_icon-font;
+        font-size: @_icon-font-size;
+        line-height: @icon-font__line-height;
+        color: @_icon-font-color;
+        content: @content;
+    }
+    &:hover{
+        &:before {
+            color: @_icon-font-color-hover;
+        }
+    }
+}
+
+.material(
+    @_icon-font: @icon-font,
+    @_icon-font-size: @icon-font__size,
+    @_icon-font-line-height: @icon-font__line-height,
+    @_icon-font-color,
+    @content
+){
+    &:before {
+        font-family: @_icon-font;
+        font-size: @_icon-font-size;
+        line-height: @_icon-font-line-height;
+        color: @_icon-font-color;
+        content: @content;
+    }
+}
+
+.social_icon(
+    @_icon-font-size,
+    @_icon-font-line-height: @_icon-font-size,
+    @_background-image,
+    @background-size,
+    @display: block
+){
+    width: @_icon-font-size;
+    height: @_icon-font-line-height;
+    background-image: @_background-image;
+    background-size: @background-size;
+    display: @display;
+}
+
+.flag(
+    @_icon-font-size,
+    @_icon-font-line-height,
+    @_background-image,
+    @background-size,
+    @display: block
+){
+    width: @_icon-font-size;
+    height: @_icon-font-line-height;
+    background-image: @_background-image;
+    background-size: @background-size;
+    display: @display;
+}
+
+span {
+    &.account {
+        margin-left: 10px;
+        .primary(
+            @content: @icon-account
+        );
+    }
+    &.bookmark {
+        margin-left: 25px;
+        .primary(
+            @content: @icon-bookmark
+        );
+    }
+    &.search {
+        margin-left: 25px;
+        .primary(
+            @content: @icon-search
+        );
+    }
+    &.menu {
+        margin-left: 25px;
+        .primary(
+            @_icon-font-color: @icon-font__color-hover_primary,
+            @_icon-font-color-hover: none,
+            @content: @icon-menu
+        )
+    }
+    &.hourglass {
+        margin-left: 25px;
+        .material(
+            @_icon-font-color: @icon-font__color_primary;
+            @content: @icon-hourglass;
+        );
+    }
+    &.bookmark2 {
+        margin-left: 25px;
+        .material(
+            @_icon-font-color: @icon-font__color_primary;
+            @content: @icon-bookmark;
+        );
+    }
+    &.help {
+        margin-left: 25px;
+        .material(
+            @_icon-font-color: @color-grey1;
+            @content: @icon-help;
+        );
+    }
+    &.check {
+        margin-left: 25px;
+        .material(
+            @_icon-font-color: @color-red-primary;
+            @content: @icon-check;
+        );
+    }
+    &.check_circle {
+        margin-left: 25px;
+        .material(
+            @_icon-font-color: @color-yellow-primary;
+            @content: @icon-check-circle;
+        );
+    }
+    &.keyboard_arrow_right {
+        margin-left: 25px;
+        .material(
+            @_icon-font-color: @color-red-primary;
+            @content: @icon-keyboard-arrow-right;
+        );
+    }
+    &.arrow_drop_down {
+        margin-left: 25px;
+        .material(
+            @_icon-font-color: @color-red-primary;
+            @content: @icon-arrow-down;
+        );
+    }
+    &.arrow_drop_up {
+        margin-left: 25px;
+        .material(
+            @_icon-font-color: @color-red-primary;
+            @content: @icon-arrow-up;
+        );
+    }
+    &.error {
+        margin-left: 25px;
+        .material(
+            @_icon-font-color: @color-orange-secondary;
+            @content: @icon-error;
+        );
+    }
+    &.cancel_1 {
+        margin-left: 25px;
+        .material(
+            @_icon-font-color: @color-red-primary;
+            @content: @icon-cancel_red;
+        );
+    }
+    &.cancel_2 {
+        margin-left: 25px;
+        .material(
+            @_icon-font-color: @color-yellow-primary;
+            @content: @icon-cancel_yellow;
+        );
+    }
+    &.registered {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .material(
+            @_icon-font-size: 15px;
+            @_icon-font-line-height: 15px;
+            @_icon-font-color: @color-green2;
+            @content: '\e927';
+        )
+    }
+    &.certificate {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .material(
+            @_icon-font-size: 15px;
+            @_icon-font-line-height: 15px;
+            @_icon-font-color: @color-blue-primary;
+            @content: '\e928';
+        )
+    }
+}
+
+a {
+    &.stitch {
+        margin-left: 10px;
+        .social_icon(
+            @_icon-font-size: 26px;
+            @_background-image: url('@{baseDir}images/stitch.svg');
+            @background-size: 26px 26px;
+        );
+    }
+    &.facebook {
+        margin-left: 10px;
+        .social_icon(
+            @_icon-font-size: 26px;
+            @_background-image: url('@{baseDir}images/fb-white.svg');
+            @background-size: 26px 26px;
+        );
+    }
+    &.twitter{
+        margin-left: 30px;
+        .social_icon(
+            @_icon-font-size: 26px;
+            @_background-image: url('@{baseDir}images/icons8-twitter-24.svg');
+            @background-size: 26px 26px;
+        );
+    }
+    &.linkedIn {
+        margin-left: 30px;
+        .social_icon(
+            @_icon-font-size: 26px;
+            @_background-image: url('@{baseDir}images/linkedIn-white.svg');
+            @background-size: 26px 26px;
+        );
+    }
+    &.us {
+        .flag(
+            @_icon-font-size: 45px;
+            @_icon-font-line-height: 26px;
+            @_background-image: url('@{baseDir}images/us.svg');
+            @background-size: 45px 26px;
+        );
+    }
+    &.mc {
+        margin-left: 30px;
+        .flag(
+            @_icon-font-size: 45px;
+            @_icon-font-line-height: 26px;
+            @_background-image: url('@{baseDir}images/mc.svg');
+            @background-size: 45px 26px;
+        );
+    }
+    &.th {
+        margin-left: 30px;
+        .flag(
+            @_icon-font-size: 45px;
+            @_icon-font-line-height: 26px;
+            @_background-image: url('@{baseDir}images/th.svg');
+            @background-size: 45px 26px;
+        );
+    }
+    &.vn {
+        margin-left: 30px;
+        .flag(
+            @_icon-font-size: 45px;
+            @_icon-font-line-height: 26px;
+            @_background-image: url('@{baseDir}images/vn.svg');
+            @background-size: 45px 26px;
+        );
+    }
+    &.whatsapp {
+        .social_icon_x(
+            @_icon-font-size: 26px;
+            @_background-image: url('@{baseDir}images/whatsapp.svg');
+            @background-size: 26px 26px;
+        );
+    }
+    &.facebook1 {
+        .social_icon_x(
+            @_icon-font-size: 26px;
+            @_background-image: url('@{baseDir}images/Facebook.svg');
+            @background-size: 26px 26px;
+        );
+    }
+    &.iconfb {
+        .social_icon(
+            @_icon-font-size: 21px;
+            @_background-image: url('@{baseDir}images/Facebook.svg');
+            @background-size: 21px 21px;
+        );
+    }
+    &.icongg {
+        .social_icon(
+            @_icon-font-size: 21px;
+            @_background-image: url('@{baseDir}images/icons8-google.svg');
+            @background-size: 21px 21px;
+        );
+    }
+    &.icontt {
+        .social_icon(
+            @_icon-font-size: 21px;
+            @_background-image: url('@{baseDir}images/icons8-twitter.svg');
+            @background-size: 21px 21px;
+        );
+    }
+    &.action.showcart {
+        .material(
+            @_icon-font-color: @icon-font__color_primary;
+            @content: @icon-bookmark;
+        );
+    }
+}
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+.social_icon_x(
+    @_icon-font-size,
+    @_icon-font-line-height: @_icon-font-size,
+    @_background-image,
+    @background-size,
+    @display: block
+){
+    width: @_icon-font-size;
+    height: @_icon-font-line-height;
+    background-image: @_background-image;
+    background-size: @background-size;
+    display: @display;
+}

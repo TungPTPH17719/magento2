@@ -1,0 +1,76 @@
+@import './variables/_colors.less';
+@import './_typographys.less';
+@import './variables/_messages.less';
+
+.alert_setup(
+    @_message-font-family: @message__font-family,
+    @_message-font-size: @message__font-size,
+    @_message-line-height: @message__line-height
+){
+    font-family: @_message-font-family;
+    font-size: @_message-font-size;
+    line-height: @_message-line-height;
+}
+
+.alert(
+    @_message-color,
+    @_message-background,
+    @_message-font-icon: @message__font-family-icon,
+    @_message-icon,
+    @_message-icon-color,
+    @_message-icon-background,
+    @_message-icon-size: 24px
+){
+    color: @_message-color;
+    background: @_message-background;
+    &:before {
+        font-family: @_message-font-icon;
+        content: @_message-icon;
+        color: @_message-icon-color;
+        background: @_message-icon-background;
+        font-size: @_message-icon-size;
+        padding-right: 10px;
+    }
+}
+
+div .message {
+    height: 30px;
+    justify-content: center;
+    display: flex !important;
+    align-items: center;
+    &.success {
+        .alert_setup(
+        );
+        .alert(
+            @_message-color: @message-success__color;
+            @_message-background: @message-success__background;
+            @_message-icon: @message-success-icon;
+            @_message-icon-color: @message-success-icon__color-lateral;
+            @_message-icon-background: @message-success-icon__background;
+        );
+    }
+    &.error {
+        .alert_setup(
+
+        );
+        .alert(
+            @_message-color: @message-error__color;
+            @_message-background: @message-error__background;
+            @_message-icon: @message-error-icon;
+            @_message-icon-color: @message-error-icon__color-lateral;
+            @_message-icon-background: @message-error-icon__background;
+        );
+    }
+    &.warning {
+        .alert_setup(
+
+        );
+        .alert(
+            @_message-color: @message-warning__color;
+            @_message-background: @message-warning__background;
+            @_message-icon: @message-warning-icon;
+            @_message-icon-color: @message-warning-icon__color-lateral;
+            @_message-icon-background: @message-warning-icon__background;
+        );
+    }
+}

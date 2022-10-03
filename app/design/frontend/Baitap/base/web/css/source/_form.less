@@ -1,0 +1,230 @@
+@import "./variables/_forms";
+
+.lib-form-element-input(
+    @_type: @form-element-input-type,
+    @_background: ~"@{@{_type}__background}",
+    @_border: ~"@{@{_type}__border}",
+    @_border-radius: ~"@{@{_type}__border-radius}",
+    @_height: ~"@{@{_type}__height}",
+    @_width: ~"@{@{_type}__width}",
+    @_padding: ~"@{@{_type}__padding}",
+    @_margin: ~"@{@{_type}__margin}",
+    @_vertical-align: ~"@{@{_type}__vertical-align}",
+    @_background-clip: ~"@{@{_type}__background-clip}",
+
+    @_font-size:  ~"@{@{_type}__font-size}",
+    @_color: ~"@{@{_type}__color}",
+    @_font-family: ~"@{@{_type}__font-family}",
+    @_font-weight: ~"@{@{_type}__font-weight}",
+    @_line-height: ~"@{@{_type}__line-height}",
+    @_font-style: ~"@{@{_type}__font-style}",
+
+    @_placeholder-color: ~"@{@{_type}-placeholder__color}",
+    @_placeholder-font-style: ~"@{@{_type}-placeholder__font-style}",
+
+    @_disabled-background: ~"@{@{_type}__disabled__background}",
+    @_disabled-border: ~"@{@{_type}__disabled__border}",
+    @_disabled-opacity: ~"@{@{_type}__disabled__opacity}",
+    @_disabled-color: ~"@{@{_type}__disabled__color}",
+    @_disabled-font-style: ~"@{@{_type}__disabled__font-style}"
+
+    //@_focus-background: ~"@{@{_type}__focus__background}",
+    //@_focus-border: ~"@{@{_type}__focus__border}",
+    //@_focus-color: ~"@{@{_type}__focus__color}",
+    //@_focus-font-style: ~"@{@{_type}__focus__font-style}"
+){
+    background: @_background;
+    background-clip: @_background-clip;
+    border: @_border;
+    border-radius: @_border-radius;
+    color: @_color;
+    font-family: @_font-family;
+    font-size: @_font-size;
+    font-style: @_font-style;
+    font-weight: @_font-weight;
+    height: @_height;
+    line-height: @_line-height;
+    margin: @_margin;
+    padding: @_padding;
+    vertical-align: @_vertical-align;
+    width: @_width;
+
+    .lib-form-placeholder(
+        @_placeholder-color: @_placeholder-color;
+        @_placeholder-font-style: @_placeholder-font-style;
+    );
+
+    .lib-form-disabled(
+        @_disabled-background: @_disabled-background;
+        @_disabled-border: @_disabled-border;
+        @_disabled-opacity: @_disabled-opacity;
+        @_disabled-color: @_disabled-color;
+        @_disabled-font-style: @_disabled-font-style;
+    );
+}
+
+.lib-form-placeholder(
+    @_placeholder-color,
+    @_placeholder-font-style
+){
+    color: @_placeholder-color;
+    font-style: @_placeholder-font-style;
+}
+
+.lib-form-disabled(
+    @_disabled-background,
+    @_disabled-border,
+    @_disabled-opacity,
+    @_disabled-color,
+    @_disabled-font-style
+){
+    &:disabled {
+        background: @_disabled-background;
+        border: @_disabled-border;
+        opacity: @_disabled-opacity;
+        color: @_disabled-color;
+        font-style: @_disabled-font-style;
+    }
+}
+
+.lib-form-element-all() {
+    input[type="text"],
+    input[type="password"]
+    {
+        &:focus {
+            box-shadow: none !important;
+        }
+
+        .lib-form-element-input(@_type: input-text);
+    }
+
+    input[type="text"]{
+        padding: 0px 50px 0px 20px;
+    }
+
+    textarea {
+        &:focus {
+            box-shadow: none !important;
+        }
+        .lib-form-element-input(@_type: textarea);
+    }
+
+    //input[type="password"] {
+    //    &:focus {
+    //        box-shadow: none !important;
+    //    }
+    //}
+
+    select {
+        &:focus {
+            box-shadow: none !important;
+        }
+        padding: 5px 35px 4px 10px;
+        .lib-form-element-input(@_type: select);
+    }
+
+    input[type="radio"] {
+        &:before {
+            content: '';
+            display: block;
+            width: 8px;
+            height: 8px;
+            background-color: white;
+            border: solid 1px red;
+            border-radius: 3px;
+            box-shadow: 0 0 0 14px white;
+        }
+        &:checked {
+            &:before {
+                background: red;
+            }
+        }
+        &:disabled {
+            &:before {
+                background: @color-grey1;
+                border: solid 1px @color-grey1;
+            }
+        }
+    }
+
+    input[type="checkbox"] {
+        margin-right: 10px;
+        top: -5px;
+        &:focus {
+            box-shadow: none !important;
+        }
+        &:before {
+            content: '';
+            display: block;
+            background: white;
+            padding: 12px;
+            //border: 1px solid green;
+        }
+
+        &:checked {
+            &:before {
+                background-image: url('@{baseDir}images/check.svg');
+            }
+        }
+        &:disabled {
+            &:before {
+                background-image: url('@{baseDir}images/check-24px.svg');
+            }
+        }
+    }
+}
+
+.lid-form-validation(
+    @_element-color-error: @form-element-validation__color-error;
+    @_element-background-error: @form-element-validation__background-error;
+    @_element-color-valid: @form-element-validation__color-valid;
+    @_element-background-valid: @form-element-validation__background-valid;
+){
+    &.mage-error {
+        color: @_element-color-error;
+        background: @_element-background-error url('@{baseDir}images/icons8-high-importance.png') 96% 50% no-repeat;
+    }
+
+    &.valid {
+        color: @_element-color-valid;
+        background: @_element-background-valid url('@{baseDir}images/icons8-check-20.png') 96% 50% no-repeat;
+    }
+}
+
+.lid-form-select(
+    @_color-select: @select__color;
+    @_background-select: @select__background;
+){
+    &.select {
+        color: @_color-select;
+        background: @_background-select url('@{baseDir}images/arrow_drop_down_24.svg') 96% 50% no-repeat;
+    }
+}
+
+input {
+    .lid-form-validation();
+}
+
+select {
+    .lid-form-select();
+}
+
+
+//radio checkbox
+.lib-form-element-choice(
+    @_type: @form-element-choice__type,
+    @_vertical-align: ~"@{@{_type}__vertical-align}",
+    @_margin: ~"@{@{_type}__margin}",
+    @_disabled-opacity: ~"@{@{_type}__disabled__opacity}"
+){
+    vertical-align: @_vertical-align;
+    margin: @_margin;
+
+    &:disabled {
+        opacity: @_disabled-opacity;
+    }
+}
+
+
+
+

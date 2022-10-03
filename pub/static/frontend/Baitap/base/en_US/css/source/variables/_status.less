@@ -1,0 +1,123 @@
+@import './_colors.less';
+@import "./_typography.less";
+
+@status__font-family: @font-family__rubik-regular;
+@status__font-size: 12px;
+@status__font-weight: @font-weight__light;
+@status__height: 16px;
+
+@status__color: @theme__color__primary-alt;
+
+.setup(
+    @_status-font-family: @status__font-family,
+    @_status-font-size: @status__font-size,
+    @_status-font-weight: @status__font-weight
+){
+    font-family: @_status-font-family;
+    font-size: @_status-font-size;
+    font-weight: @_status-font-weight;
+
+}
+
+.bt(
+    @_status-height: @status__height,
+    @_status-width,
+    @_status-background
+){
+    height: @_status-height;
+    width: @_status-width;
+    background: @_status-background;
+}
+
+.status_label(
+    @_status-color: @status__color
+){
+    color: @_status-color;
+}
+
+.sl {
+    margin-left: 20px;
+    text-align: center;
+    border-radius: 25px;
+    .setup(
+        @_status-font-family: @status__font-family,
+        @_status-font-size: @status__font-size,
+        @_status-font-weight: @status__font-weight
+    );
+    &.in_progress {
+        .bt(
+            @_status-width: 96px,
+            @_status-background: @color-yellow
+        );
+        & span {
+            .status_label()
+        }
+    }
+    &.upcoming {
+        .bt(
+            @_status-width: 82px,
+            @_status-background: @color-green2
+        );
+        & span {
+            .status_label()
+        }
+    }
+    &.past {
+        .bt(
+            @_status-width: 49px,
+            @_status-background: @color-grey6
+        );
+        & span {
+            .status_label()
+        }
+    }
+    &.completed {
+        .bt(
+            @_status-width: 90px,
+            @_status-background: @color-green2
+        );
+        & span {
+            .status_label()
+        }
+    }
+    &.registered {
+        .bt(
+            @_status-height: 17px,
+            @_status-width: 111px,
+            @_status-background: @color-grey4
+        );
+        & span {
+            .status_label(
+                @_status-color: @color-green2;
+            )
+        }
+    }
+    &.certificate {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 15px;
+        .bt(
+            @_status-height: 21px,
+            @_status-width: 113px,
+            @_status-background: @color-yellow-primary
+        );
+        & span {
+            .status_label(
+                @_status-color: @color-blue-primary;
+            )
+        }
+    }
+    &.category {
+        border-radius: 20px;
+        .bt(
+            @_status-width: 81px,
+            @_status-background: @color-grey5
+        );
+        & span {
+            .status_label(
+                @_status-color: @color-red-primary;
+            )
+        }
+    }
+}
